@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   nb_visible.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pyven-dr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 10:54:08 by pyven-dr          #+#    #+#             */
-/*   Updated: 2023/07/15 11:18:30 by pyven-dr         ###   ########.fr       */
+/*   Updated: 2023/07/15 11:33:04 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	nb_visible_line(int grille[4][4], int i)
+int	nb_visible_row_left(int grid[4][4], int i)
 {
 	int	result;
 	int	high;
@@ -20,18 +20,18 @@ int	nb_visible_line(int grille[4][4], int i)
 	j = 0;
 	high = 1;
 	while (j < 4)
-	{       
-		if (grille[i][j] >= high)
+	{
+		if (grid[i][j] >= high)
 		{
 			result++;
-			high = grille[i][j];
+			high = grid[i][j];
 		}
 		j++;
 	}
 	return (result);
 }
 
-int	nb_visible_invert_line(int grille[4][4], int i)
+int	nb_visible_row_right(int grid[4][4], int i)
 {
 	int	result;
 	int	high;
@@ -42,17 +42,17 @@ int	nb_visible_invert_line(int grille[4][4], int i)
 	high = 1;
 	while (j >= 0)
 	{
-		if (grille[i][j] >= high)
+		if (grid[i][j] >= high)
 		{
 			result++;
-			high = grille[i][j];
+			high = grid[i][j];
 		}
 		j--;
 	}
 	return (result);
 }
 
-int	nb_visible_column(int grille[4][4], int i)
+int	nb_visible_col_up(int grid[4][4], int i)
 {
 	int     result;
 	int     high;
@@ -63,17 +63,17 @@ int	nb_visible_column(int grille[4][4], int i)
 	high = 1;
 	while (j < 4)
 	{
-		if (grille[j][i] >= high)
+		if (grid[j][i] >= high)
 		{
 			result++;
-			high = grille[j][i];
+			high = grid[j][i];
 		}
 		j++;
 	}
 	return (result);
 }
 
-int	nb_visible_invert_column(int grille[4][4], int i)
+int	nb_visible_col_down(int grid[4][4], int i)
 {
 	int	result;
 	int	high;
@@ -84,12 +84,24 @@ int	nb_visible_invert_column(int grille[4][4], int i)
 	high = 1;
 	while (j >= 0)
 	{
-		if (grille[j][i] >= high)
+		if (grid[j][i] >= high)
 		{
 			result++;
-			high = grille[j][i];
+			high = grid[j][i];
 		}
 		j--;
 	}
 	return (result);
+}
+
+int	nb_visible(int **grid, int i)
+{
+	if (i / 4 == 0)
+		nb_visible_col_up(grid, i % 4);
+	else if (i / 4 == 1)
+		nb_visible_col_down(grid, i % 4);
+	else if (i / 4 == 2)
+		nb_visible_row_left(grid, i % 4);
+	else
+		nb_visible_row_right(grid, i % 4);
 }
