@@ -1,46 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put.c                                              :+:      :+:    :+:   */
+/*   io.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 10:00:46 by bstauss           #+#    #+#             */
-/*   Updated: 2023/07/15 14:19:09 by deydoux          ###   ########.fr       */
+/*   Updated: 2023/07/15 16:59:06 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+int	**parse_rules(char *input)
 {
 	int	i;
+	int	**rules;
 
+	rules = malloc(4);
+	rules[0] = malloc(4);
+	rules[1] = malloc(4);
+	rules[2] = malloc(4);
+	rules[3] = malloc(4);
 	i = 0;
-	while (str[i])
-		write(1, &str[i++], 1);
-}
-
-int	put_error(int code)
-{
-	if (code == 2)
+	while (input[i])
 	{
-		ft_putstr("Error: Invalid format, ");
-		ft_putstr("you must match the following example.\n");
-		ft_putstr("./rush-01 \"col1up col2up col3up col4up col1down col2down ");
-		ft_putstr("col3down col4down row1left row2left row3left row4left ");
-		ft_putstr("row1right row2right row3right row4right\"");
+		if (i >= 31)
+			return (NULL);
+		if (i % 2 == 0)
+		{
+			if (!('1' <= input[i] && input[i] <= '4'))
+				return (NULL);
+			rules[i / 8][i / 2 % 4] = input[i] - '0';
+		}
+		else if (input[i] != ' ')
+			return (NULL);
+		i++;
 	}
-	ft_putstr("\n");
-	return (code);
+	return (rules);
 }
-
 
 void	put_grid(int **grid)
 {
-	int	i;
-	int	j;
 	char	c;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (i < 4)
