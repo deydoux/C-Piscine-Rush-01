@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 11:41:06 by deydoux           #+#    #+#             */
-/*   Updated: 2023/07/15 16:59:01 by deydoux          ###   ########.fr       */
+/*   Updated: 2023/07/15 17:03:33 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,4 @@ int	**init_grid(int **rules)
 		i++;
 	}
 	return (grid);
-}
-
-void	ft_free(int **array)
-{
-	free(array[0]);
-	free(array[1]);
-	free(array[2]);
-	free(array[3]);
-	free(array);
 }

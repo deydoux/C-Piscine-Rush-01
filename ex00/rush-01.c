@@ -6,17 +6,17 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 09:10:54 by deydoux           #+#    #+#             */
-/*   Updated: 2023/07/15 17:01:13 by deydoux          ###   ########.fr       */
+/*   Updated: 2023/07/15 17:03:52 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdlib.h>
 
 int		**parse_rules(char *input);
 int		**init_grid(int **rules);
 void	put_grid(int **grid);
 int		solve(int **grid, int **rules, int position);
-void	ft_free(int **array);
 
 int	main(int argc, char **argv)
 {
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	put_grid(grid);
-	ft_free(grid);
-	ft_free(rules);
+	free(grid);
+	free(rules);
 	return (0);
 }
