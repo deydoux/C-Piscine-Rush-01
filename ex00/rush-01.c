@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 09:10:54 by deydoux           #+#    #+#             */
-/*   Updated: 2023/07/15 16:59:28 by deydoux          ###   ########.fr       */
+/*   Updated: 2023/07/15 17:01:13 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ int	main(int argc, char **argv)
 	}
 	grid = init_grid(rules);
 	if (!solve(grid, rules, 0))
+	{
 		write(1, "Error\n", 6);
+		return (1);
+	}
 	put_grid(grid);
 	ft_free(grid);
 	ft_free(rules);
