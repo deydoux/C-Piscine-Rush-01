@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 10:54:08 by pyven-dr          #+#    #+#             */
-/*   Updated: 2023/07/15 11:33:04 by deydoux          ###   ########.fr       */
+/*   Updated: 2023/07/15 11:34:49 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int	nb_visible_row_right(int grid[4][4], int i)
 
 int	nb_visible_col_up(int grid[4][4], int i)
 {
-	int     result;
-	int     high;
-	int     j;
+	int	result;
+	int	high;
+	int	j;
 
 	result = 0;
 	j = 0;
