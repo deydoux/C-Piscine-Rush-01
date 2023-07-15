@@ -6,11 +6,11 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 10:54:08 by pyven-dr          #+#    #+#             */
-/*   Updated: 2023/07/15 11:34:49 by deydoux          ###   ########.fr       */
+/*   Updated: 2023/07/15 14:11:35 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	nb_visible_row_left(int grid[4][4], int i)
+int	nb_visible_row_left(int **grid, int i)
 {
 	int	result;
 	int	high;
@@ -31,7 +31,7 @@ int	nb_visible_row_left(int grid[4][4], int i)
 	return (result);
 }
 
-int	nb_visible_row_right(int grid[4][4], int i)
+int	nb_visible_row_right(int **grid, int i)
 {
 	int	result;
 	int	high;
@@ -52,7 +52,7 @@ int	nb_visible_row_right(int grid[4][4], int i)
 	return (result);
 }
 
-int	nb_visible_col_up(int grid[4][4], int i)
+int	nb_visible_col_up(int **grid, int i)
 {
 	int	result;
 	int	high;
@@ -73,7 +73,7 @@ int	nb_visible_col_up(int grid[4][4], int i)
 	return (result);
 }
 
-int	nb_visible_col_down(int grid[4][4], int i)
+int	nb_visible_col_down(int **grid, int i)
 {
 	int	result;
 	int	high;
@@ -97,11 +97,11 @@ int	nb_visible_col_down(int grid[4][4], int i)
 int	nb_visible(int **grid, int i)
 {
 	if (i / 4 == 0)
-		nb_visible_col_up(grid, i % 4);
+		return (nb_visible_col_up(grid, i % 4));
 	else if (i / 4 == 1)
-		nb_visible_col_down(grid, i % 4);
+		return (nb_visible_col_down(grid, i % 4));
 	else if (i / 4 == 2)
-		nb_visible_row_left(grid, i % 4);
+		return (nb_visible_row_left(grid, i % 4));
 	else
-		nb_visible_row_right(grid, i % 4);
+		return (nb_visible_row_right(grid, i % 4));
 }

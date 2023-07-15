@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 10:00:46 by bstauss           #+#    #+#             */
-/*   Updated: 2023/07/15 13:50:32 by deydoux          ###   ########.fr       */
+/*   Updated: 2023/07/15 14:14:20 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,21 @@ int	put_error(int code)
 }
 
 
-void	put_grid(int grid[4][4])
+void	put_grid(int **grid)
 {
 	int	i;
 	int	j;
+	char	c;
 
 	i = 0;
 	while (i < 4)
 	{
 		j = 0;
 		while (j < 4)
-			write(1, &grid[i][j++], 1);
+		{
+			c = grid[i][j++] + '0';
+			write(1, &c, 1);
+		}
 		write(1, "\n", 1);
 		i++;
 	}
