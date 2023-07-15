@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush-01.c                                          :+:      :+:    :+:   */
+/*   affichage.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: bstauss <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 09:10:54 by deydoux           #+#    #+#             */
-/*   Updated: 2023/07/15 10:49:50 by deydoux          ###   ########.fr       */
+/*   Created: 2023/07/15 10:00:46 by bstauss           #+#    #+#             */
+/*   Updated: 2023/07/15 10:02:09 by bstauss          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	throw_error(int	code);
-int	**parse_params(char *input);
+#include <unistd.h>
 
-int	main(int argc, char **argv)
+void	aff_case(int grille[4][4])
 {
-	int	**params;
+	int	i;
+	int	j;
 
-	if (argc != 2)
-		return (throw_error(1));
-	params = parse_params(argv[1]);
-	if (!params)
-		return (throw_error(1));
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+			write(1, &grille[i][j++], 1);
+		write(1, "\n", 1);
+		i++;
+	}
 }
