@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   throw_error.c                                      :+:      :+:    :+:   */
+/*   put.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 09:40:07 by deydoux           #+#    #+#             */
-/*   Updated: 2023/07/15 09:40:15 by deydoux          ###   ########.fr       */
+/*   Created: 2023/07/15 10:00:46 by bstauss           #+#    #+#             */
+/*   Updated: 2023/07/15 13:50:32 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putstr(char *str);
+#include <unistd.h>
 
-int	throw_error(int	code)
+void	ft_putstr(char *str)
 {
-	if (code == 1)
+	int	i;
+
+	i = 0;
+	while (str[i])
+		write(1, &str[i++], 1);
+}
+
+int	put_error(int code)
+{
+	if (code == 2)
 	{
 		ft_putstr("Error: Invalid format, ");
 		ft_putstr("you must match the following example.\n");
@@ -24,4 +33,21 @@ int	throw_error(int	code)
 	}
 	ft_putstr("\n");
 	return (code);
+}
+
+
+void	put_grid(int grid[4][4])
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+			write(1, &grid[i][j++], 1);
+		write(1, "\n", 1);
+		i++;
+	}
 }
