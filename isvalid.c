@@ -6,7 +6,7 @@
 /*   By: pyven-dr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 09:19:08 by pyven-dr          #+#    #+#             */
-/*   Updated: 2023/07/15 10:18:04 by pyven-dr         ###   ########.fr       */
+/*   Updated: 2023/07/15 10:55:36 by pyven-dr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ int	main(void)
 {
 	#include <stdio.h>
 	int	tab[4][4] =  {{1,2,3,4},{2,3,4,1},{3,4,1,2},{4,1,2,3}};
-	printf("%d",isvalid(tab));
+	printf("%d",nb_visible_line(tab,3));
 	return (0);
 }
