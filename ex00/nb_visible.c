@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 10:54:08 by pyven-dr          #+#    #+#             */
-/*   Updated: 2023/07/15 14:11:35 by deydoux          ###   ########.fr       */
+/*   Updated: 2023/07/15 16:23:14 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ int	nb_visible_col_up(int **grid, int i)
 
 	result = 0;
 	j = 0;
-	high = 1;
+	high = 0;
 	while (j < 4)
 	{
-		if (grid[j][i] >= high)
+		if (grid[j][i] > high)
 		{
 			result++;
 			high = grid[j][i];
