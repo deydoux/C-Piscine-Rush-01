@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 14:39:46 by pyven-dr          #+#    #+#             */
-/*   Updated: 2023/07/15 17:18:38 by deydoux          ###   ########.fr       */
+/*   Updated: 2023/07/15 17:29:15 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	row_contains(int **grid, int i, int k)
 	int	j;
 
 	j = 0;
-	while (grid[i][j] != '\0')
+	while (j < 4 && grid[i][j] != 0)
 	{
 		if (grid[i][j] == k)
 			return (1);
@@ -34,7 +34,7 @@ int	column_contains(int **grid, int j, int k)
 	int	i;
 
 	i = 0;
-	while (grid[i][j] != '\0')
+	while (i < 4 && grid[i][j] != 0)
 	{
 		if (grid[i][j] == k)
 			return (1);
